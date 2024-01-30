@@ -13,13 +13,11 @@ st.title("FBIMOVIE Genre Analysis")
 # Introduction text
 introduction = """
 Created by: **Prof. P.V. (Sundar) Balakrishnan**
-
+*`SELECT YOUR GENRE OF CHOICE FOR ANALYSIS`*
 **ARIMA Code for Genres Market Share Analysis**
 This analysis covers each of the following 12 genres:
 `PropertyCrimes`, `Action`, `Adventure`, `BlackComedy`, `Comedy`, `Documentary`, `Drama`, `Horror`, `Musical`, `RomanticComedy`, `Thriller_Suspense`, `Western`.
-
-
-*Process of Analysis**:
+**Process of Analysis**:
 1. Difference the series to achieve stationarity.
 2. Conduct the Augmented Dickey-Fuller (ADF) test to check for stationarity.
 3. Perform ARIMA modeling and Grid Search to find the best model parameters.
