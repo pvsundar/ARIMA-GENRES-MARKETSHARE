@@ -15,11 +15,11 @@ introduction = """
 Created by: **Prof. P.V. (Sundar) Balakrishnan**
 
 **ARIMA Code for Genres Market Share Analysis**
-
 This analysis covers each of the following 12 genres:
 `PropertyCrimes`, `Action`, `Adventure`, `BlackComedy`, `Comedy`, `Documentary`, `Drama`, `Horror`, `Musical`, `RomanticComedy`, `Thriller_Suspense`, `Western`.
 
-**Process of Analysis**:
+
+*Process of Analysis**:
 1. Difference the series to achieve stationarity.
 2. Conduct the Augmented Dickey-Fuller (ADF) test to check for stationarity.
 3. Perform ARIMA modeling and Grid Search to find the best model parameters.
@@ -139,6 +139,21 @@ if 'FBIMOVIEdata' in locals() or 'FBIMOVIEdata' in globals():
             st.write(f"ARIMA summaries for {genre} saved to {summary_filename}")
         else:
             st.write(f"No suitable ARIMA model found for {genre} with COVID-19 impact")
+import base64
+# Function to create a download link
+def get_download_link(filename):
+    with open(filename, "rb") as file:
+        # Read the file and encode it
+        file_data = file.read()
+        b64 = base64.b64encode(file_data).decode()
+    # Create the href string for downloading
+    href = f'<a href="data:file/txt;base64,{b64}" download="{filename}">Download {filename}</a>'
+    return href
+
+# Usage in your Streamlit app
+summary_filename = f'{genre.lower()}-arima_summary.txt'
+st.markdown(get_download_link(summary_filename), unsafe_allow_html=True)
+
 
 # Add some space at the end of the app
 st.write("")
