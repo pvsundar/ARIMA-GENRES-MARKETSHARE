@@ -7,6 +7,28 @@ from statsmodels.tsa.stattools import adfuller
 import itertools
 import seaborn as sns
 
+# Streamlit app title
+st.title("FBIMOVIE Genre Analysis")
+
+# Introduction text
+introduction = """
+Created by: **Prof. P.V. (Sundar) Balakrishnan**
+
+**ARIMA Code for Genres Market Share Analysis**
+
+This analysis covers each of the following 12 genres:
+`PropertyCrimes`, `Action`, `Adventure`, `BlackComedy`, `Comedy`, `Documentary`, `Drama`, `Horror`, `Musical`, `RomanticComedy`, `Thriller_Suspense`, `Western`.
+
+**Process of Analysis**:
+1. Difference the series to achieve stationarity.
+2. Conduct the Augmented Dickey-Fuller (ADF) test to check for stationarity.
+3. Perform ARIMA modeling and Grid Search to find the best model parameters.
+4. Include a dummy variable for the COVID-19 (or other external shock) impact and year of impact as part of the ARIMA model.
+"""
+
+st.markdown(introduction)
+
+
 # Suppress warnings
 import warnings
 warnings.filterwarnings("ignore")
